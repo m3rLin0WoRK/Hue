@@ -3,9 +3,7 @@ language: objective-c
 cache: cocoapods
 
 before_install:
-- brew update
-- gem install cocoapods
-- gem install xcpretty
+- travis_wait 35; bin/bootstrap-if-needed
 
 script:
 - xcodebuild clean build -project Hue.xcodeproj -scheme Hue-iOS -sdk iphonesimulator | xcpretty - c && exit ${PIPESTATUS[0]}
