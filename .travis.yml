@@ -2,9 +2,6 @@ osx_image: xcode8
 language: objective-c
 cache: cocoapods
 
-before_install:
-- travis_wait 35; bin/bootstrap-if-needed
-
 script:
 - xcodebuild clean build -project Hue.xcodeproj -scheme Hue-iOS -sdk iphonesimulator | xcpretty - c && exit ${PIPESTATUS[0]}
 - xcodebuild test -project Hue.xcodeproj -scheme Hue-iOS -sdk iphonesimulator -destination name="iPhone 6" | xcpretty - c && exit ${PIPESTATUS[0]}
